@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rock Paper Scissors Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/modnorm.css" rel="stylesheet">
+    <link href="css/rps.css" rel="stylesheet">
+  </head>
+  <body onload="initialPick()">
+
+    <ul class="nav nav-tabs nav-fill">
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="rock-paper-scissors.html">RPS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tic-tac-toe.html">Tic-Tac-Toe</a>
+      </li>
+    </ul>
+
+
+    <h1>Rock, Paper, Scissors</h1>
+    <main class="choice">
+      <section class="pchoice">
+        <h2>You choose . . .</h2>
+        <div class="images">
+          <a class="rock-hand" onclick="rockPick()">
+            <img id="r-img" src="img/rock.svg" alt="hand as rock">
+            </a>
+          <a class="paper-hand" onclick="paperPick()">
+            <img id="p-img" src="img/paper.svg" alt="hand as paper">
+            </a>
+          <a class="scissors-hand" onclick="scissorsPick()">
+            <img id="s-img" src="img/scissors.svg" alt="hand as scissors">
+            </a>
+        </div>
+      </section>
+      <section class="ochoice">
+        <h2>Opponent chooses . . .</h2>
+        <img id="o-img" src="">
+      </section>
+    </main>
+    <section class="scoreboard">
+      <h2 id="result">Click an option to play.</h2>
+      <div id="play" class="score">
+        <p id="pscore">0</p>
+        <p class="label">Player</p>
+      </div>
+      <div id="opp" class="score">
+        <p id="oscore">0</p>
+        <p class="label">Opponent</p>
+      </div>
+      <div id="games" class="score">
+        <p id="gameTotal">0</p>
+        <p class="label">Total Games</p>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/rps.js"></script>
+  
+    <footer>
+      <p>&copy; 2021 Randeep Singh &nbsp;|&nbsp; Images from <a href="https://github.com/ericyork">Eric York</a></p>
+    </footer>
+  </body>
+</html>
