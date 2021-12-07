@@ -1,5 +1,8 @@
 body {
-    font-family: "Arial", sans-serif;
+    width: 65%;
+    margin: auto;
+    background-color: #43464b;
+    font-family: 'Nunito', sans-serif;
 }
 
 section {
@@ -7,8 +10,8 @@ section {
 }
 
 .game--title {
-    font-size: 100px;
-    color: #d7a62f;
+    color: #BFC8D6;
+    font-weight: bold;
     margin: 10px auto;
 }
 
@@ -17,34 +20,95 @@ section {
     grid-template-columns: repeat(3, auto);
     width: 306px;
     margin: 10px auto;
-    background-color: #11213a;
-    color: #04c0b2;
+    background-color: #3E505C;
+    color: #968768;
 }
 
 .cell {
-    font-family: "Permanent Marker", cursive;
     width: 100px;
     height: 100px;
-    box-shadow: 2px 2px 2px 2px #ecd7ba;
-    border: 2px solid #ecd7ba;
+    box-shadow: 4px 4px #798E9C;
+    border: 2px solid #95BFDB;
     cursor: pointer;
     line-height: 100px;
     font-size: 60px;
+    border-radius: 5px;
 }
 
 .game--status {
-    font-size: 50px;
-    color: #d7a62f;
+    color: #BFC8D6;
+    font-weight: bold;
     margin: 20px auto;
 }
 
 .game--restart {
-    background-color: #f7e4ac;
+    display: inline;
+    background-color: #2D3033;
     width: 200px;
     height: 50px;
     font-size: 25px;
-    color: #5586e2;
-    box-shadow: 2px 2px 2px 2px #d86c23;
-    border: 2px solid #d86c23;
+    color: #BFC8D6;
+    font-weight: bold;
+    box-shadow: 3px 3px 0px 0px #778396;
+    border: 1px solid #968768;
+    border-radius: 5px;
+    transition: ease;
+    margin-right: 20px;
 }
- 
+
+.game--restart:hover {
+    background-color: #BFC8D6;
+    color: #2D3033;
+    box-shadow: 3px 3px 0px 0px #968768;
+    border: 1px solid #778396;
+}
+
+.game--computer {
+    display: inline-block;
+    background-color: #2D3033;
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+    color: #BFC8D6;
+    font-weight: bold;
+    box-shadow: 3px 3px 0px 0px #778396;
+    border: 1px solid #968768;
+    border-radius: 5px;
+    transition: ease;
+    text-decoration: none;
+    margin-right: 10px;
+    padding-top: 5px;
+}
+
+.game--computer:hover {
+    background-color: #BFC8D6;
+    color: #2D3033;
+    box-shadow: 3px 3px 0px 0px #968768;
+    border: 1px solid #778396;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    color: #798E9C;
+    border: 1px solid #95BFDB;
+}
+
+.btn-circle:hover {
+    border: 1px solid #798E9C;
+    color: #95BFDB;
+}

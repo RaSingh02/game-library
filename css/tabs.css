@@ -1,0 +1,13 @@
+.nav {
+    font-family: 'Nunito', sans-serif;
+}
+
+.nav-link {
+    color: #95BFDB;
+    font-weight: 700;
+}
+
+.nav-tabs .nav-link.active {
+    color: #3E505C;
+    background-color: #5A819C;
+}

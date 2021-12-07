@@ -2,10 +2,10 @@
   width: 65%;
   margin: auto;
   background-color: #43464b;
+  font-family: 'Nunito', sans-serif;
 }
 h1, h2 {
   text-align: center;
-  font-family: "Nunito", Helvetica;
 }
 h1 {
   color: #BFC8D6;
