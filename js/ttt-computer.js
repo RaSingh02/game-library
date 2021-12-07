@@ -63,7 +63,11 @@ function handleResultValidation() {
     handlePlayerChange();
 }
 
-if ("${currentPlayer}" == 'X') {
+function randomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+if (currentPlayer == 'X') {
     function handleCellClick(clickedCellEvent) {
         const clickedCell = clickedCellEvent.target;
         const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
@@ -75,31 +79,61 @@ if ("${currentPlayer}" == 'X') {
         handleCellPlayed(clickedCell, clickedCellIndex);
         handleResultValidation();
     }
-} else if ("${currentPlayer}" == "O") {
-    function handleCellClick() {
+} else if (currentPlayer == "O") {
+    function handleCellClickComputer() {
         
+        let counter = 0;
         const isEmpty = 0;
 
-        for(let i = 0; i < gameState.length(); i++) {
-            while (counter != 1) {
-                if (gameState[i] == "") {
-                    counter = 1;
-                    isEmpty = i;
-                }
+        while (counter != 1) {
+            let rInt =  randomInt(9)
+            if (gameState[rInt] == "") {
+                isEmpty = rInt;
+                counter = 1;
             }
-            break;
         }
 
         switch (isEmpty) {
-            case 0:
-                document.getElementById("c0").click();
+            case (isEmpty = 0):
+                gameState[isEmpty] = currentPlayer;
+                document.getElementById("c0").innerHTML = currentPlayer;
                 break;
-        
+            case (isEmpty = 1):
+                gameState[isEmpty] = currentPlayer;
+                document.getElementById("c1").innerHTML = currentPlayer;
+                break;
+            case (isEmpty = 2):
+                gameState[isEmpty] = currentPlayer;
+                document.getElementById("c2").innerHTML = currentPlayer;
+                break;
+            case (isEmpty = 3):
+                gameState[isEmpty] = currentPlayer;
+                document.getElementById("c3").innerHTML = currentPlayer;
+                break;
+            case (isEmpty = 4):
+                gameState[isEmpty] = currentPlayer;
+                document.getElementById("c4").innerHTML = currentPlayer;
+                break;
+            case (isEmpty = 5):
+                gameState[isEmpty] = currentPlayer;
+                document.getElementById("c5").innerHTML = currentPlayer;
+                break;
+            case (isEmpty = 6):
+                gameState[isEmpty] = currentPlayer;
+                document.getElementById("c6").innerHTML = currentPlayer;
+                break;
+            case (isEmpty = 7):
+                gameState[isEmpty] = currentPlayer;
+                document.getElementById("c7").innerHTML = currentPlayer;
+                break;
+            case (isEmpty = 8):
+                gameState[isEmpty] = currentPlayer;
+                document.getElementById("c8").innerHTML = currentPlayer;
+                break;
             default:
                 break;
         }
 
-        handleCellPlayed(clickedCell, randomCellIndex);
         handleResultValidation();
     }
 }
@@ -111,7 +145,6 @@ function handleRestartGame() {
     statusDisplay.innerHTML = currentPlayerTurn();
     document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
 }
-
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
