@@ -63,16 +63,45 @@ function handleResultValidation() {
     handlePlayerChange();
 }
 
-function handleCellClick(clickedCellEvent) {
-    const clickedCell = clickedCellEvent.target;
-    const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
+if ("${currentPlayer}" == 'X') {
+    function handleCellClick(clickedCellEvent) {
+        const clickedCell = clickedCellEvent.target;
+        const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
 
-    if (gameState[clickedCellIndex] !== "" || !gameActive) {
-        return;
+        if (gameState[clickedCellIndex] !== "" || !gameActive) {
+            return;
+        }
+
+        handleCellPlayed(clickedCell, clickedCellIndex);
+        handleResultValidation();
     }
+} else if ("${currentPlayer}" == "O") {
+    function handleCellClick() {
+        
+        const isEmpty = 0;
 
-    handleCellPlayed(clickedCell, clickedCellIndex);
-    handleResultValidation();
+        for(let i = 0; i < gameState.length(); i++) {
+            while (counter != 1) {
+                if (gameState[i] == "") {
+                    counter = 1;
+                    isEmpty = i;
+                }
+            }
+            break;
+        }
+
+        switch (isEmpty) {
+            case 0:
+                document.getElementById("c0").click();
+                break;
+        
+            default:
+                break;
+        }
+
+        handleCellPlayed(clickedCell, randomCellIndex);
+        handleResultValidation();
+    }
 }
 
 function handleRestartGame() {
