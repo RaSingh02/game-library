@@ -81,7 +81,7 @@ if (currentPlayer == 'X') {
     }
 } else if (currentPlayer == "O") {
     function handleCellClickComputer() {
-        
+
         let counter = 0;
         const isEmpty = 0;
 
@@ -148,3 +148,32 @@ function handleRestartGame() {
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
+
+
+//Note that you WILL need to change the fill character on the alternate clicks.
+//You will also need to verify win conditions are met and output properly
+//This runs when a button is clicked, but you should integrate it better
+function compPlay() { //function to fill a random square
+  let emptyCells = []; //creates array for empty cells
+  const allCells = document.querySelectorAll('.cell'); //sets up array of all cells
+  for (const aCell of allCells) { //loops through array to find empties
+    if (aCell.innerHTML == "") { //if a cell is empty . . .
+      emptyCells.push(aCell);    //add it to the array of empties
+    }
+  }
+
+  let rand = Math.floor(Math.random() * emptyCells.length); //generates a random number between 0 and the number of empty cells
+
+  if (emptyCells.length > 0) { //as long as there are empty cells . . .
+    if (emptyCells[rand].innerHTML == "") { //and if a random cell is empty  . . .
+      emptyCells[rand].innerHTML = "O"; //fill that cell with with a "O"
+    }
+  } else { //if no empty cells remain . . .
+    console.log("Game Over!"); //log game over . . .
+    return; //and end play
+  }
+
+  //logs, just FYI
+  console.log("Rand #: " + rand);
+  console.log("# of Empties: " + emptyCells.length);
+}
