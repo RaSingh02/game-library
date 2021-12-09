@@ -82,6 +82,7 @@ function handleRestartGame() {
 }
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
+document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', compPlay));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
 
 
@@ -102,11 +103,13 @@ async function compPlay() { //function to fill a random square
 
   if (emptyCells.length > 0) { //as long as there are empty cells . . .
     if (emptyCells[rand].innerHTML == "") { //and if a random cell is empty  . . .
+      currentPlayer = "O";
+      statusDisplay.innerHTML = currentPlayerTurn();
       await sleep(2000);
       emptyCells[rand].innerHTML = "O"; //fill that cell with with a "O"
+      handleResultValidation();
       currentPlayer = "X";
       statusDisplay.innerHTML = currentPlayerTurn();
-      handleResultValidation();
     }
   } else if (emptyCells == 0) { 
     handleResultValidation(); 
