@@ -1,19 +1,83 @@
+:root {
+  --shadow-color: darkblue;
+  --shadow-color-light: lightblue;
+}
+
 body {
     width: 65%;
     margin: auto;
     background-color: #43464b;
     font-family: 'Nunito', sans-serif;
-  }
-
-.typing > *{
-    padding-top: 200px;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typingAnim 5s steps(50);
 }
 
+.center {
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-@keyframes typingAnim {
-    from {width: 0}
-    to {width: 100%}
+.center-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing {
+  width: 26ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+  color: white;
+  text-transform: uppercase;
+}
+
+.typing-sub {
+    width: 28ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 2em;
+    color: white
+}
+
+.gradient-header {
+  background: linear-gradient(
+    90deg, 
+    rgba(149,191,219,1) 16%, 
+    rgba(90,129,156,1) 32%, 
+    rgba(106,136,156,1) 48%, 
+    rgba(121,142,156,1) 64%, 
+    rgba(156,122,75,1) 80%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+.gradient-sub {
+  background: linear-gradient(
+    to right,
+    hsl(98 100% 62%),
+    hsl(204 100% 59%)
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
 }
