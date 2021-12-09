@@ -87,6 +87,31 @@ section {
     border: 1px solid #778396;
 }
 
+.computer--move {
+    display: inline-block;
+    background-color: #2D3033;
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+    color: #BFC8D6;
+    font-weight: bold;
+    box-shadow: 3px 3px 0px 0px #778396;
+    border: 1px solid #968768;
+    border-radius: 5px;
+    transition: ease;
+    text-decoration: none;
+    margin-right: 10px;
+    padding-top: 5px;
+    margin-bottom: 20px;
+}
+
+.computer--move:hover {
+    background-color: #BFC8D6;
+    color: #2D3033;
+    box-shadow: 3px 3px 0px 0px #968768;
+    border: 1px solid #778396;
+}
+
 .btn-circle.btn-xl {
     width: 70px;
     height: 70px;

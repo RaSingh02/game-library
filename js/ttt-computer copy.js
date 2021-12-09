@@ -82,37 +82,53 @@ function handleRestartGame() {
 }
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
-document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', compPlay));
 document.querySelector('.game--restart').addEventListener('click', handleRestartGame);
 
-
-function sleep(milliseconds) {  
-    return new Promise(resolve => setTimeout(resolve, milliseconds));  
-}  
-
-async function compPlay() { //function to fill a random square
-  let emptyCells = []; //creates array for empty cells
-  const allCells = document.querySelectorAll('.cell'); //sets up array of all cells
-  for (const aCell of allCells) { //loops through array to find empties
-    if (aCell.innerHTML == "") { //if a cell is empty . . .
-      emptyCells.push(aCell);    //add it to the array of empties
+function compPlay() { 
+    let emptyCells = []; 
+    const allCells = document.querySelectorAll('.cell'); 
+    for (const aCell of allCells) { 
+      if (aCell.innerHTML == "") { 
+        emptyCells.push(aCell);    
+      }
     }
-  }
+  
+    let rand = Math.floor(Math.random() * emptyCells.length);
+  
+    if (emptyCells.length > 0) {
+      if (emptyCells[rand].innerHTML == "") {
+        randCellIndex = parseInt(emptyCells[rand].getAttribute('data-cell-index'));
+        gameState[randCellIndex] = "O"; 
+        emptyCells[rand].innerHTML = "O";
 
-  let rand = Math.floor(Math.random() * emptyCells.length); 
+        let roundWon = false;
+        for (let i = 0; i <= 7; i++) {
+            const winCondition = winningConditions[i];
+            let a = gameState[winCondition[0]];
+            let b = gameState[winCondition[1]];
+            let c = gameState[winCondition[2]];
+            if (a === '' || b === '' || c === '') {
+                continue;
+            }
+            if (a === b && b === c) {
+                roundWon = true;
+                break
+            }
+        }
 
-  if (emptyCells.length > 0) { //as long as there are empty cells . . .
-    if (emptyCells[rand].innerHTML == "") { //and if a random cell is empty  . . .
-      currentPlayer = "O";
-      statusDisplay.innerHTML = currentPlayerTurn();
-      await sleep(2000);
-      emptyCells[rand].innerHTML = "O"; //fill that cell with with a "O"
-      handleResultValidation();
-      currentPlayer = "X";
-      statusDisplay.innerHTML = currentPlayerTurn();
+        if (roundWon) { 
+            const computerWin = () => `Player O has won!`;
+            statusDisplay.innerHTML = computerWin();
+            gameActive = false;
+            return;
+        }
+
+        let roundDraw = !gameState.includes("");
+        if (roundDraw) {
+            statusDisplay.innerHTML = drawMessage();
+            gameActive = false;
+            return;
+        }
+      }
     }
-  } else if (emptyCells == 0) { 
-    handleResultValidation(); 
-    return; 
-  }
 }

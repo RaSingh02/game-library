@@ -177,3 +177,34 @@ function compPlay() { //function to fill a random square
   console.log("Rand #: " + rand);
   console.log("# of Empties: " + emptyCells.length);
 }
+
+
+// async function compPlay() { //function to fill a random square
+//     let emptyCells = []; //creates array for empty cells
+//     const allCells = document.querySelectorAll('.cell'); //sets up array of all cells
+//     for (const aCell of allCells) { //loops through array to find empties
+//       if (aCell.innerHTML == "") { //if a cell is empty . . .
+//         emptyCells.push(aCell);    //add it to the array of empties
+//       }
+//     }
+  
+//     let rand = Math.floor(Math.random() * emptyCells.length); 
+  
+//     if (emptyCells.length > 0) { //as long as there are empty cells . . .
+//       if (emptyCells[rand].innerHTML == "") { //and if a random cell is empty  . . .
+//         statusDisplay.innerHTML = currentPlayerTurn();
+//         await sleep(2000);
+//         emptyCells[rand].innerHTML = "O"; //fill that cell with with a "O"
+//         currentPlayer = "O";
+//         gameState[rand] = currentPlayer;
+//         handleResultValidation();
+//         currentPlayer = "X";
+//         statusDisplay.innerHTML = currentPlayerTurn();
+//         emptyCells.length = 0;
+  
+//       }
+//     } else if (emptyCells == 0) { 
+//       handleResultValidation(); 
+//       return; 
+//     }
+// }
