@@ -8,7 +8,7 @@
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/403cbe08da.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="css/global.css" rel="stylesheet">
     <link href="css/modnorm.css" rel="stylesheet">
     <link rel="stylesheet" href="css/tabs.css">
@@ -31,19 +31,20 @@
     <section>
         <h1 class="game--title">Tic Tac Toe</h1>
         <div class="game--container">
-            <div data-cell-index="0" class="cell c0"></div>
-            <div data-cell-index="1" class="cell c1"></div>
-            <div data-cell-index="2" class="cell c2"></div>
-            <div data-cell-index="3" class="cell c3"></div>
-            <div data-cell-index="4" class="cell c4"></div>
-            <div data-cell-index="5" class="cell c5"></div>
-            <div data-cell-index="6" class="cell c6"></div>
-            <div data-cell-index="7" class="cell c7"></div>
-            <div data-cell-index="8" class="cell c8"></div>
+            <div data-cell-index="0" id="c0" class="cell c0"></div>
+            <div data-cell-index="1" id="c1" class="cell c1"></div>
+            <div data-cell-index="2" id="c2" class="cell c2"></div>
+            <div data-cell-index="3" id="c3" class="cell c3"></div>
+            <div data-cell-index="4" id="c4" class="cell c4"></div>
+            <div data-cell-index="5" id="c5" class="cell c5"></div>
+            <div data-cell-index="6" id="c6" class="cell c6"></div>
+            <div data-cell-index="7" id="c7" class="cell c7"></div>
+            <div data-cell-index="8" id="c8" class="cell c8"></div>
         </div>
+        <button onclick="compPlay()" class="btn btn-primary">Go ahead</button>
         <h2 class="game--status"></h2>
         <button class="game--restart">Restart</button>
-        <a href="tic-tac-toe.html" class="game--computer">Player</a> 
+        <a href="tic-tac-toe.html" class="game--computer">Player</a>
 
         <button onclick="info()" type="button" class="btn btn-default btn-circle">
           <i class="fas fa-info"></i>
@@ -60,4 +61,3 @@
     <script src="js/ttt-computer.js"></script>
 </body>
 </html>
- 
