@@ -11,20 +11,21 @@ body {
 }
 
 .center {
-  height: 25vh;
+  margin-top: 75px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .center-sub {
+  margin-top: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .typing {
-  width: 26ch;
+  width: 25ch;
   animation: typing 2s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
@@ -36,7 +37,7 @@ body {
 }
 
 .typing-sub {
-    width: 28ch;
+    width: 21ch;
     animation: typing 2s steps(22), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
@@ -79,5 +80,282 @@ body {
 @keyframes blink {
   50% {
     border-color: transparent
+  }
+}
+
+/* Game Cards */
+a, a:hover {
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.game {
+  flex-wrap: wrap;
+  display: flex;
+  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+  border-radius: 10px;
+  margin: 0 0 2rem 0;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+  box-shadow: 15px 8px 20px #6A889C;
+}
+
+.game.dark {
+  background-color: #18151f;
+}
+
+.game .t-dark {
+  color: #18151f;
+}
+
+.game a {
+  color: inherit;
+}
+
+.game h1, .game .h1 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.game .game__title {
+  font-size: 1.75rem;
+}
+
+.game .game__img {
+  max-height: 180px;
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+.game .game__img_link {
+  display: contents;
+}
+
+.game .game__bar {
+  width: 50px;
+  height: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: #424242;
+  transition: width 0.2s ease;
+}
+
+.game .game__text {
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.game .game__preview-txt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify;
+  height: 100%;
+}
+
+.game .game__tagbox {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 14px;
+  margin: 20px 0 0 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.game .game__tagbox .tag__item {
+  display: inline-block;
+  background: rgba(83, 83, 83, 0.4);
+  border-radius: 3px;
+  padding: 2.5px 10px;
+  margin: 0 5px 5px 0;
+  cursor: default;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.game .game__tagbox .tag__item:hover {
+  background: rgba(83, 83, 83, 0.8);
+}
+
+.game:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(-70deg, #424242, transparent 50%);
+  opacity: 1;
+  border-radius: 10px;
+}
+
+.game:hover .game__bar {
+  width: 100px;
+}
+
+@media screen and (min-width: 769px) {
+  .game {
+    flex-wrap: inherit;
+  }
+
+  .game .game__title {
+    font-size: 2rem;
+  }
+
+  .game .game__tagbox {
+    justify-content: start;
+  }
+
+  .game .game__img {
+    max-width: 300px;
+    max-height: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .game .game__text {
+    padding: 3rem;
+    width: 100%;
+  }
+
+  .game .media.game__text:before {
+    content: "";
+    position: absolute;
+    display: block;
+    background: #18151f;
+    top: -20%;
+    height: 130%;
+    width: 55px;
+  }
+
+  .game:hover .game__img {
+    transform: scale(1.1);
+  }
+
+  .game:nth-child(2n+1) {
+    flex-direction: row;
+  }
+
+  .game:nth-child(2n+0) {
+    flex-direction: row-reverse;
+  }
+
+  .game:nth-child(2n+1) .game__text::before {
+    left: -12px !important;
+    transform: rotate(4deg);
+  }
+
+  .game:nth-child(2n+0) .game__text::before {
+    right: -12px !important;
+    transform: rotate(-4deg);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .game__text {
+    padding: 2rem 3.5rem;
+  }
+
+  .game__text:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: -20%;
+    height: 130%;
+    width: 55px;
+  }
+
+  .game.dark .game__text:before {
+    background: #18151f;
+  }
+}
+
+/* Game Card Colors */
+.game .game__tagbox .green.play:hover {
+  background: #79dd09;
+  color: black;
+}
+
+.green .game__title:hover {
+  color: #79dd09;
+}
+
+.green .game__bar {
+  background-color: #79dd09;
+}
+
+.green::before {
+  background-image: linear-gradient(-30deg, rgba(121, 221, 9, 0.1), transparent 50%);
+}
+
+.green:nth-child(2n)::before {
+  background-image: linear-gradient(30deg, rgba(121, 221, 9, 0.1), transparent 50%);
+}
+
+.game .game__tagbox .blue.play:hover {
+  background: #0076bd;
+}
+
+.blue .game__title:hover {
+  color: #0076bd;
+}
+
+.blue .game__bar {
+  background-color: #0076bd;
+}
+
+.blue::before {
+  background-image: linear-gradient(-30deg, rgba(0, 118, 189, 0.1), transparent 50%);
+}
+
+.blue:nth-child(2n)::before {
+  background-image: linear-gradient(30deg, rgba(0, 118, 189, 0.1), transparent 50%);
+}
+
+.game .game__tagbox .red.play:hover {
+  background: #bd150b;
+}
+
+.red .game__title:hover {
+  color: #bd150b;
+}
+
+.red .game__bar {
+  background-color: #bd150b;
+}
+
+.red::before {
+  background-image: linear-gradient(-30deg, rgba(189, 21, 11, 0.1), transparent 50%);
+}
+
+.red:nth-child(2n)::before {
+  background-image: linear-gradient(30deg, rgba(189, 21, 11, 0.1), transparent 50%);
+}
+
+@media screen and (min-width: 769px) {
+  .green::before {
+    background-image: linear-gradient(-80deg, rgba(121, 221, 9, 0.1), transparent 50%);
+  }
+
+  .green:nth-child(2n)::before {
+    background-image: linear-gradient(80deg, rgba(121, 221, 9, 0.1), transparent 50%);
+  }
+
+  .blue::before {
+    background-image: linear-gradient(-80deg, rgba(0, 118, 189, 0.1), transparent 50%);
+  }
+
+  .blue:nth-child(2n)::before {
+    background-image: linear-gradient(80deg, rgba(0, 118, 189, 0.1), transparent 50%);
+  }
+
+  .red::before {
+    background-image: linear-gradient(-80deg, rgba(189, 21, 11, 0.1), transparent 50%);
+  }
+
+  .red:nth-child(2n)::before {
+    background-image: linear-gradient(80deg, rgba(189, 21, 11, 0.1), transparent 50%);
   }
 }
